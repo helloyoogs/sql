@@ -1,6 +1,8 @@
 # sql
 mariadb-호텔신라,샤넬
 
+-호텔신라
+
 CREATE TABLE member (
   id varchar(45) NOT NULL primary key,
   pw varchar(45),
