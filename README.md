@@ -63,8 +63,6 @@ insert into room values(205, 'Rewards In Room Delights', 106400, 30000, 3, 7, '.
 
 -샤넬
 
--- TBL_MEMBER 테이블 설정
-
 CREATE TABLE TBL_MEMBER(
 	memberId VARCHAR(45) PRIMARY KEY,
 	memberPw VARCHAR(45),
@@ -81,12 +79,6 @@ INSERT INTO TBL_MEMBER
 (MEMBERID, MEMBERPW, MEMBERAGE, MEMBERGENDER, MEMBEREMAIL, MEMBERZIPCODE, MEMBERADDRESS, MEMBERADDRESSDETAIL, MEMBERADDRESSETC)
 VALUES('hds1234', '1234', 20, '남자', 'ted@han.com', '12341', '서울시 강남구 역삼동', '100동 100호', '');
 
-SELECT * FROM TBL_MEMBER;
-
-
-
--- Board 생성
-
 CREATE TABLE TBL_BOARD(
 	boardNum int(38) auto_increment not null, 
 	boardTitle VARCHAR(45),
@@ -99,8 +91,6 @@ CREATE TABLE TBL_BOARD(
 	REFERENCES TBL_MEMBER(memberId)
 )CHARSET=UTF8MB4;
 
--- TBL_FILES 테이블 설정
-
 CREATE TABLE TBL_FILES(
 	fileName VARCHAR(45),
 	boardNum int(38),
@@ -108,11 +98,6 @@ CREATE TABLE TBL_FILES(
 	CONSTRAINT FK_FILES_BOARD FOREIGN KEY(boardNum)
 	REFERENCES TBL_BOARD(boardNum)
 )CHARSET=UTF8MB4;
-
-SELECT * FROM TBL_FILES;
-
-
--- TBL_REPLY 테이블 설정
 
 CREATE TABLE TBL_REPLY(
 	replyNum int(38) auto_increment,
@@ -123,10 +108,6 @@ CREATE TABLE TBL_REPLY(
 	CONSTRAINT FK_REPLY_BOARD FOREIGN KEY(boardNum)
 	REFERENCES TBL_BOARD(boardNum) ON DELETE CASCADE
 )CHARSET=UTF8MB4;
-
-
-SELECT * FROM TBL_REPLY;
-
 
 CREATE TABLE TBL_SHOOSE (
   sId varchar(45) NOT NULL PRIMARY KEY,
@@ -154,8 +135,6 @@ on update cascade on delete CASCADE,
 on update cascade on delete CASCADE
 ) CHARSET=UTF8MB4;
 
-
-----
 INSERT INTO `chanel`.`TBL_SHOOSE` (`sId`, `sName`, `sImg`, `sSize`, `sPrice`, `sStock`) VALUES ('sd6220', '테이턴트 카프스킨', '../assets/images/sandle/sandals6.jpg', '220', '1458000', '100');
 INSERT INTO `chanel`.`TBL_SHOOSE` (`sId`, `sName`, `sImg`, `sSize`, `sPrice`, `sStock`) VALUES ('sd6230', '테이턴트 카프스킨', '../assets/images/sandle/sandals6.jpg', '230', '1458000', '100');
 INSERT INTO `chanel`.`TBL_SHOOSE` (`sId`, `sName`, `sImg`, `sSize`, `sPrice`, `sStock`) VALUES ('sd6240', '테이턴트 카프스킨', '../assets/images/sandle/sandals6.jpg', '240', '1458000', '100');
